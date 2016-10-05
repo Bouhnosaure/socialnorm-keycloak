@@ -6,6 +6,24 @@ use SocialNorm\Providers\OAuth2Provider;
 class KeycloakProvider extends OAuth2Provider
 {
 
+    protected $auth_server;
+    protected $auth_realm;
+
+    /**
+     * KeycloakProvider constructor.
+     *
+     * Really ugly i know ... but i needed to get args from config !
+     * TODO Fix this crap
+     */
+    public function __construct()
+    {
+        $args = func_get_args();
+        call_user_func_array(array('parent', '__construct'), $args);
+
+        $this->auth_server = $args[0]['auth_server'];
+        $this->auth_realm = $args[0]['auth_realm'];
+    }
+
     protected $scope = [
         'view-profile',
         'manage-account',
