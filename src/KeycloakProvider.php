@@ -1,4 +1,4 @@
-<?php namespace SocialNorm\GitHub;
+<?php namespace SocialNorm\Keycloak;
 
 use SocialNorm\Exceptions\InvalidAuthorizationCodeException;
 use SocialNorm\Providers\OAuth2Provider;
